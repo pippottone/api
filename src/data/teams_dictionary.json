@@ -1,0 +1,94 @@
+{
+  "MILAN": {
+    "id": 489,
+    "name": "AC Milan"
+  },
+  "ROMA": {
+    "id": 497,
+    "name": "AS Roma"
+  },
+  "ATALANTA": {
+    "id": 499,
+    "name": "Atalanta"
+  },
+  "BOLOGNA": {
+    "id": 500,
+    "name": "Bologna"
+  },
+  "CAGLIARI": {
+    "id": 490,
+    "name": "Cagliari"
+  },
+  "CREMONESE": {
+    "id": 520,
+    "name": "Cremonese"
+  },
+  "EMPOLI": {
+    "id": 511,
+    "name": "Empoli"
+  },
+  "FIORENTINA": {
+    "id": 502,
+    "name": "Fiorentina"
+  },
+  "FROSINONE": {
+    "id": 512,
+    "name": "Frosinone"
+  },
+  "GENOA": {
+    "id": 495,
+    "name": "Genoa"
+  },
+  "INTER": {
+    "id": 505,
+    "name": "Inter"
+  },
+  "JUVENTUS": {
+    "id": 496,
+    "name": "Juventus"
+  },
+  "LAZIO": {
+    "id": 487,
+    "name": "Lazio"
+  },
+  "LECCE": {
+    "id": 867,
+    "name": "Lecce"
+  },
+  "MONZA": {
+    "id": 1579,
+    "name": "Monza"
+  },
+  "NAPOLI": {
+    "id": 492,
+    "name": "Napoli"
+  },
+  "SALERNITANA": {
+    "id": 514,
+    "name": "Salernitana"
+  },
+  "SAMPDORIA": {
+    "id": 498,
+    "name": "Sampdoria"
+  },
+  "SASSUOLO": {
+    "id": 488,
+    "name": "Sassuolo"
+  },
+  "SPEZIA": {
+    "id": 515,
+    "name": "Spezia"
+  },
+  "TORINO": {
+    "id": 503,
+    "name": "Torino"
+  },
+  "UDINESE": {
+    "id": 494,
+    "name": "Udinese"
+  },
+  "VERONA": {
+    "id": 504,
+    "name": "Verona"
+  }
+}

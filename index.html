@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Name Normalizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="panel">
+        <header class="panel__header">
+          <p class="eyebrow">Api-Football Dictionary Tester</p>
+          <h1>Type a sloppy team name</h1>
+          <p class="subtitle">
+            See the official API name and id that your betslip parser should use.
+          </p>
+        </header>
+
+        <div class="input-row">
+          <input id="teamInput" type="text" placeholder="Napoli, Milan, Inter, Lyon..." />
+          <button id="lookupButton" type="button">Normalize</button>
+        </div>
+
+        <div class="output" id="outputBox">
+          <div class="output__label">Result</div>
+          <div class="output__value" id="outputValue">Waiting for input…</div>
+        </div>
+
+        <div class="chips">
+          <button class="chip" data-value="Napoli">Napoli</button>
+          <button class="chip" data-value="Milan">Milan</button>
+          <button class="chip" data-value="Inter">Inter</button>
+          <button class="chip" data-value="Lyon">Lyon</button>
+        </div>
+      </section>
+      <section class="panel panel--info">
+        <h2>Loaded dictionary</h2>
+        <div class="stats">
+          <div>
+            <span id="entryCount">0</span>
+            <small>entries</small>
+          </div>
+          <div>
+            <span id="teamCount">0</span>
+            <small>teams</small>
+          </div>
+        </div>
+        <p class="info">
+          This reads from <strong>src/data/teams_dictionary.json</strong>. Run the
+          seed script again each season to refresh.
+        </p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

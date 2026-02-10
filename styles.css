@@ -1,0 +1,162 @@
+:root {
+  --bg: #10141c;
+  --panel: rgba(18, 28, 40, 0.9);
+  --accent: #ffb703;
+  --accent-2: #00d1b2;
+  --text: #f8f7ff;
+  --muted: #a0aec0;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top, #1b2a3a, #0a0e14 60%) no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.page {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(280px, 520px) minmax(220px, 320px);
+  width: min(980px, 100%);
+}
+
+.panel {
+  background: var(--panel);
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.panel__header h1 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 44px;
+  margin: 12px 0 8px;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+  color: var(--accent);
+  margin: 0;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.input-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+input {
+  flex: 1;
+  min-width: 180px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 16px;
+}
+
+button {
+  background: var(--accent);
+  border: none;
+  color: #1b1b1b;
+  font-weight: 600;
+  padding: 14px 22px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 183, 3, 0.35);
+}
+
+.output {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.output__label {
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+
+.output__value {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.chips {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.chip {
+  background: transparent;
+  color: var(--accent-2);
+  border: 1px solid rgba(0, 209, 178, 0.5);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.panel--info h2 {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 32px;
+  margin-top: 0;
+}
+
+.stats {
+  display: flex;
+  gap: 24px;
+  margin: 16px 0;
+}
+
+.stats span {
+  font-size: 28px;
+  font-weight: 600;
+  display: block;
+}
+
+.stats small {
+  color: var(--muted);
+}
+
+.info {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+}
