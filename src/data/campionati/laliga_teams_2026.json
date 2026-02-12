@@ -1,0 +1,122 @@
+[
+  {
+    "id": 542,
+    "name": "Alaves",
+    "code": "ALA",
+    "country": "Spain"
+  },
+  {
+    "id": 531,
+    "name": "Athletic Club",
+    "code": "BIL",
+    "country": "Spain"
+  },
+  {
+    "id": 530,
+    "name": "Atletico Madrid",
+    "code": "MAD",
+    "country": "Spain"
+  },
+  {
+    "id": 529,
+    "name": "Barcelona",
+    "code": "BAR",
+    "country": "Spain"
+  },
+  {
+    "id": 538,
+    "name": "Celta Vigo",
+    "code": "CEL",
+    "country": "Spain"
+  },
+  {
+    "id": 797,
+    "name": "Elche",
+    "code": "ELC",
+    "country": "Spain"
+  },
+  {
+    "id": 540,
+    "name": "Espanyol",
+    "code": "ESP",
+    "country": "Spain"
+  },
+  {
+    "id": 546,
+    "name": "Getafe",
+    "code": "GET",
+    "country": "Spain"
+  },
+  {
+    "id": 547,
+    "name": "Girona",
+    "code": "GIR",
+    "country": "Spain"
+  },
+  {
+    "id": 539,
+    "name": "Levante",
+    "code": "LEV",
+    "country": "Spain"
+  },
+  {
+    "id": 798,
+    "name": "Mallorca",
+    "code": "MAL",
+    "country": "Spain"
+  },
+  {
+    "id": 727,
+    "name": "Osasuna",
+    "code": "OSA",
+    "country": "Spain"
+  },
+  {
+    "id": 718,
+    "name": "Oviedo",
+    "code": "OVI",
+    "country": "Spain"
+  },
+  {
+    "id": 728,
+    "name": "Rayo Vallecano",
+    "code": "RAY",
+    "country": "Spain"
+  },
+  {
+    "id": 543,
+    "name": "Real Betis",
+    "code": "BET",
+    "country": "Spain"
+  },
+  {
+    "id": 541,
+    "name": "Real Madrid",
+    "code": "REA",
+    "country": "Spain"
+  },
+  {
+    "id": 548,
+    "name": "Real Sociedad",
+    "code": "RSO",
+    "country": "Spain"
+  },
+  {
+    "id": 536,
+    "name": "Sevilla",
+    "code": "SEV",
+    "country": "Spain"
+  },
+  {
+    "id": 532,
+    "name": "Valencia",
+    "code": "VAL",
+    "country": "Spain"
+  },
+  {
+    "id": 533,
+    "name": "Villarreal",
+    "code": "VIL",
+    "country": "Spain"
+  }
+]

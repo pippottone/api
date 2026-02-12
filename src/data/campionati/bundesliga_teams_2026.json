@@ -1,0 +1,110 @@
+[
+  {
+    "id": 180,
+    "name": "1. FC Heidenheim",
+    "code": "HEI",
+    "country": "Germany"
+  },
+  {
+    "id": 192,
+    "name": "1. FC Köln",
+    "code": "KOL",
+    "country": "Germany"
+  },
+  {
+    "id": 167,
+    "name": "1899 Hoffenheim",
+    "code": "HOF",
+    "country": "Germany"
+  },
+  {
+    "id": 168,
+    "name": "Bayer Leverkusen",
+    "code": "BAY",
+    "country": "Germany"
+  },
+  {
+    "id": 157,
+    "name": "Bayern München",
+    "code": "BAY",
+    "country": "Germany"
+  },
+  {
+    "id": 165,
+    "name": "Borussia Dortmund",
+    "code": "DOR",
+    "country": "Germany"
+  },
+  {
+    "id": 163,
+    "name": "Borussia Mönchengladbach",
+    "code": "MOE",
+    "country": "Germany"
+  },
+  {
+    "id": 169,
+    "name": "Eintracht Frankfurt",
+    "code": "EIN",
+    "country": "Germany"
+  },
+  {
+    "id": 170,
+    "name": "FC Augsburg",
+    "code": "AUG",
+    "country": "Germany"
+  },
+  {
+    "id": 186,
+    "name": "FC St. Pauli",
+    "code": "PAU",
+    "country": "Germany"
+  },
+  {
+    "id": 164,
+    "name": "FSV Mainz 05",
+    "code": "MAI",
+    "country": "Germany"
+  },
+  {
+    "id": 175,
+    "name": "Hamburger SV",
+    "code": "HAM",
+    "country": "Germany"
+  },
+  {
+    "id": 173,
+    "name": "RB Leipzig",
+    "code": "LEI",
+    "country": "Germany"
+  },
+  {
+    "id": 160,
+    "name": "SC Freiburg",
+    "code": "FRE",
+    "country": "Germany"
+  },
+  {
+    "id": 182,
+    "name": "Union Berlin",
+    "code": "UNI",
+    "country": "Germany"
+  },
+  {
+    "id": 172,
+    "name": "VfB Stuttgart",
+    "code": "STU",
+    "country": "Germany"
+  },
+  {
+    "id": 161,
+    "name": "VfL Wolfsburg",
+    "code": "WOL",
+    "country": "Germany"
+  },
+  {
+    "id": 162,
+    "name": "Werder Bremen",
+    "code": "WER",
+    "country": "Germany"
+  }
+]

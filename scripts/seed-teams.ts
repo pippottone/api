@@ -1,17 +1,22 @@
 import axios from "axios";
 import { promises as fs } from "fs";
 import path from "path";
-import { ALIAS_MAP, normalizeName } from "../src/utils/teamNormalization";
 
 const API_URL = "https://v3.football.api-sports.io/teams";
-// const LEAGUE_IDS = [39, 135, 140, 78, 61];
-const LEAGUE_IDS = [135];
-const SEASONS = [2022, 2023];
-const OUTPUT_PATH = path.resolve(__dirname, "..", "src", "data", "teams_db.json");
-const DICTIONARY_PATH = path.resolve(__dirname, "..", "src", "data", "teams_dictionary.json");
+const SEASON = 2026;
+const FALLBACK_SEASONS = [2025, 2024, 2023, 2022];
+const OUTPUT_DIR = path.resolve(__dirname, "..", "src", "data", "campionati");
+const LEAGUES = [
+  { id: 135, file: "seriea_teams_2026.json", label: "Serie A" },
+  { id: 39, file: "premierleague_teams_2026.json", label: "Premier League" },
+  { id: 61, file: "ligue1_teams_2026.json", label: "Ligue 1" },
+  { id: 140, file: "laliga_teams_2026.json", label: "Spanish Liga" },
+  { id: 78, file: "bundesliga_teams_2026.json", label: "Bundesliga" }
+] as const;
 
 const API_KEY = process.env.API_FOOTBALL_KEY;
 
+type LeagueConfig = (typeof LEAGUES)[number];
 type TeamEntry = {
   id: number;
   name: string;
@@ -26,12 +31,24 @@ async function fetchTeams(leagueId: number, season: number): Promise<TeamEntry[]
   });
 
   const items = response.data?.response ?? [];
-  return items.map((item: { team: TeamEntry }) => ({
-    id: item.team.id,
-    name: item.team.name,
-    code: item.team.code ?? null,
-    country: item.team.country
-  }));
+  return items
+    .map((item: { team?: { id?: number; name?: string; code?: string | null; country?: string } }) => {
+      const name = item.team?.name?.trim();
+      const id = item.team?.id;
+      const country = item.team?.country?.trim();
+
+      if (!id || !name || !country) {
+        return null;
+      }
+
+      return {
+        id,
+        name,
+        code: item.team?.code ?? null,
+        country
+      };
+    })
+    .filter((team: TeamEntry | null): team is TeamEntry => Boolean(team));
 }
 
 async function seedTeams() {
@@ -39,47 +56,50 @@ async function seedTeams() {
     throw new Error("Missing API_FOOTBALL_KEY environment variable.");
   }
 
-  const teamMap = new Map<number, TeamEntry>();
+  await fs.mkdir(OUTPUT_DIR, { recursive: true });
 
-  for (const leagueId of LEAGUE_IDS) {
-    for (const season of SEASONS) {
-      try {
-        const teams = await fetchTeams(leagueId, season);
-        for (const team of teams) {
-          if (!teamMap.has(team.id)) {
-            teamMap.set(team.id, team);
-          }
-        }
-        console.log(`Fetched ${teams.length} teams for league ${leagueId}, season ${season}.`);
-      } catch (error) {
-        console.error(`Error fetching league ${leagueId}, season ${season}:`, error);
+  for (const league of LEAGUES) {
+    await saveLeagueTeams(league, SEASON);
+  }
+}
+
+async function saveLeagueTeams(league: LeagueConfig, season: number) {
+  try {
+    const seasonsToTry = [season, ...FALLBACK_SEASONS];
+    let selectedSeason = season;
+    let teams: TeamEntry[] = [];
+
+    for (const candidateSeason of seasonsToTry) {
+      const candidateTeams = await fetchTeams(league.id, candidateSeason);
+      if (candidateTeams.length > 0) {
+        selectedSeason = candidateSeason;
+        teams = candidateTeams;
+        break;
       }
     }
-  }
 
-  const allTeams = Array.from(teamMap.values()).sort((a, b) => a.name.localeCompare(b.name));
+    const uniqueTeams = Array.from(new Map(teams.map((team) => [team.id, team])).values()).sort((a, b) =>
+      a.name.localeCompare(b.name)
+    );
+    const filePath = path.join(OUTPUT_DIR, league.file);
 
-  const dictionary: Record<string, { id: number; name: string }> = {};
-  for (const team of allTeams) {
-    const key = normalizeName(team.name);
-    if (key) {
-      dictionary[key] = { id: team.id, name: team.name };
+    await fs.writeFile(filePath, JSON.stringify(uniqueTeams, null, 2), "utf-8");
+    if (uniqueTeams.length === 0) {
+      console.log(`Saved 0 teams for ${league.label}. No data found for seasons ${seasonsToTry.join(", ")} at ${filePath}.`);
+      return;
     }
-  }
 
-  for (const [aliasKey, officialName] of Object.entries(ALIAS_MAP)) {
-    const target = allTeams.find((team) => team.name === officialName);
-    if (target) {
-      dictionary[aliasKey] = { id: target.id, name: target.name };
+    if (selectedSeason === season) {
+      console.log(`Saved ${uniqueTeams.length} teams for ${league.label} (${season}) to ${filePath}.`);
+      return;
     }
+
+    console.log(
+      `Saved ${uniqueTeams.length} teams for ${league.label} using fallback season ${selectedSeason} (requested ${season}) to ${filePath}.`
+    );
+  } catch (error) {
+    console.error(`Error fetching ${league.label} (${season}):`, error);
   }
-
-  await fs.mkdir(path.dirname(OUTPUT_PATH), { recursive: true });
-  await fs.writeFile(OUTPUT_PATH, JSON.stringify(allTeams, null, 2), "utf-8");
-  await fs.writeFile(DICTIONARY_PATH, JSON.stringify(dictionary, null, 2), "utf-8");
-
-  console.log(`Saved ${allTeams.length} teams to ${OUTPUT_PATH}.`);
-  console.log(`Saved ${Object.keys(dictionary).length} entries to ${DICTIONARY_PATH}.`);
 }
 
 seedTeams().catch((error) => {

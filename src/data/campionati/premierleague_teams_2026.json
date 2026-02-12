@@ -1,0 +1,122 @@
+[
+  {
+    "id": 42,
+    "name": "Arsenal",
+    "code": "ARS",
+    "country": "England"
+  },
+  {
+    "id": 66,
+    "name": "Aston Villa",
+    "code": "AST",
+    "country": "England"
+  },
+  {
+    "id": 35,
+    "name": "Bournemouth",
+    "code": "BOU",
+    "country": "England"
+  },
+  {
+    "id": 55,
+    "name": "Brentford",
+    "code": "BRE",
+    "country": "England"
+  },
+  {
+    "id": 51,
+    "name": "Brighton",
+    "code": "BRI",
+    "country": "England"
+  },
+  {
+    "id": 44,
+    "name": "Burnley",
+    "code": "BUR",
+    "country": "England"
+  },
+  {
+    "id": 49,
+    "name": "Chelsea",
+    "code": "CHE",
+    "country": "England"
+  },
+  {
+    "id": 52,
+    "name": "Crystal Palace",
+    "code": "CRY",
+    "country": "England"
+  },
+  {
+    "id": 45,
+    "name": "Everton",
+    "code": "EVE",
+    "country": "England"
+  },
+  {
+    "id": 36,
+    "name": "Fulham",
+    "code": "FUL",
+    "country": "England"
+  },
+  {
+    "id": 63,
+    "name": "Leeds",
+    "code": "LEE",
+    "country": "England"
+  },
+  {
+    "id": 40,
+    "name": "Liverpool",
+    "code": "LIV",
+    "country": "England"
+  },
+  {
+    "id": 50,
+    "name": "Manchester City",
+    "code": "MCI",
+    "country": "England"
+  },
+  {
+    "id": 33,
+    "name": "Manchester United",
+    "code": "MUN",
+    "country": "England"
+  },
+  {
+    "id": 34,
+    "name": "Newcastle",
+    "code": "NEW",
+    "country": "England"
+  },
+  {
+    "id": 65,
+    "name": "Nottingham Forest",
+    "code": "NOT",
+    "country": "England"
+  },
+  {
+    "id": 746,
+    "name": "Sunderland",
+    "code": "SUN",
+    "country": "England"
+  },
+  {
+    "id": 47,
+    "name": "Tottenham",
+    "code": "TOT",
+    "country": "England"
+  },
+  {
+    "id": 48,
+    "name": "West Ham",
+    "code": "WES",
+    "country": "England"
+  },
+  {
+    "id": 39,
+    "name": "Wolves",
+    "code": "WOL",
+    "country": "England"
+  }
+]
